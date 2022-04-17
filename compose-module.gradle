@@ -42,7 +42,7 @@ dependencies {
     implementation Compose.compiler
     implementation Compose.ui
     implementation Compose.uiToolingPreview
-    implementation Compose.uiDebugPreview
+    debugImplementation Compose.uiDebugPreview
     implementation Compose.hiltNavigationCompose
     implementation Compose.material
     implementation Compose.runtime
