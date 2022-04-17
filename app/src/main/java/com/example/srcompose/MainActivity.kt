@@ -52,7 +52,7 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     RootLayout {
-        Greeting(name = "Android")
+        Text(text = "TextView Test")
     }
 }
 
