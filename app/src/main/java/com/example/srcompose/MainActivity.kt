@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
+import com.example.onboarding_presentation.welcome.WelcomeScreen
 import com.example.srcompose.ui.theme.SrComposeTheme
 import java.time.format.TextStyle
 
@@ -78,6 +79,12 @@ fun DefaultPreview() {
             style = MaterialTheme.typography.h4
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewWelcomeScreen() {
+    WelcomeScreen()
 }
 
 
