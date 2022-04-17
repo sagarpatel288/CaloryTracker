@@ -62,18 +62,20 @@ fun DefaultPreview() {
         Text(
             text = "TextView 1",
             modifier = Modifier
-                .padding(16.dp)
                 .wrapContentWidth()
                 .background(Color.Gray),
             fontSize = 18.sp,
             color = Color.Blue,
             fontWeight = FontWeight.Bold,
         )
+        Spacer(
+            modifier = Modifier.height(18.dp)
+        )
         Text(
             text = "TextView 2",
             modifier = Modifier
-                .padding(16.dp)
-                .background(Color.Cyan)
+                .background(Color.Cyan),
+            style = MaterialTheme.typography.h4
         )
     }
 }
