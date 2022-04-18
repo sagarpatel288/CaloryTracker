@@ -9,7 +9,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -22,7 +21,6 @@ import com.example.core.navigation.Route
 import com.example.onboarding_presentation.welcome.WelcomeScreen
 import com.example.srcompose.navigation.navigate
 import com.example.srcompose.ui.theme.SrComposeTheme
-import java.time.format.TextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +37,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Route.WELCOME
                     ) {
                         composable(Route.WELCOME) {
-                            WelcomeScreen(onNavigate = navController::navigate)
+                            WelcomeScreen(onClickNext = navController::navigate)
                         }
                         composable(Route.GENDER) {
 
