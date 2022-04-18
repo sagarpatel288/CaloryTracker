@@ -20,6 +20,7 @@ fun ActionButton(
     textStyle: TextStyle = MaterialTheme.typography.button,
     color: Color = MaterialTheme.colors.onPrimary,
     shape: Shape = RoundedCornerShape(LocalSpacing.current.spaceExtraLarge),
+    textModifier: Modifier = Modifier.padding(LocalSpacing.current.spaceSmall),
     isEnabled: Boolean = true
 ) {
     Button(
@@ -31,8 +32,10 @@ fun ActionButton(
         Text(
             text = textOnButton,
             color = color,
-            modifier = Modifier.padding(LocalSpacing.current.spaceSmall),
+            modifier = textModifier,
             style = textStyle
         )
     }
 }
+
+
