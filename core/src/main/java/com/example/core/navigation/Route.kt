@@ -1,5 +1,7 @@
 package com.example.core.navigation
 
+import com.example.core.utils.UiEvent
+
 /**
  * 04/05/22 10:18
  * <p>
@@ -8,6 +10,9 @@ package com.example.core.navigation
  * </p>
  * We have made this [Route] as a part of the Core module because
  * each module can perform a navigation.
+ * </p>
+ * To perform a navigation, we need [UiEvent] sealed class as a data
+ * and this [Route] object class as a value.
  * </p>
  * @author sagar patel
  * @since v0.0.1.

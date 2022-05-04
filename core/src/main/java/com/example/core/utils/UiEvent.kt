@@ -10,6 +10,9 @@ package com.example.core.utils
  * because each module can propagate single time UI event
  * such as a navigation.
  * </p>
+ * To perform a navigation, we need this [UiEvent] sealed class as a data
+ * and [com.example.core.navigation.Route] object class as a value.
+ * </p>
  * @author sagar patel
  * @since v1.0.0.
  */
