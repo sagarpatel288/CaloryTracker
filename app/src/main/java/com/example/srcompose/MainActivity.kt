@@ -1,5 +1,6 @@
 package com.example.srcompose
 
+import android.app.Notification
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,10 +15,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.core.navigation.Route
+import com.example.core.utils.UiEvent
+import com.example.onboarding_presentation.components.ActionButton
 import com.example.onboarding_presentation.welcome.WelcomeScreen
 import com.example.srcompose.navigation.navigate
 import com.example.srcompose.ui.theme.SrComposeTheme
@@ -27,45 +32,40 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SrComposeTheme {
-                // A surface container using the 'background' color from the theme
                 val navController = rememberNavController()
-                Surface(
-                    color = MaterialTheme.colors.background
+                NavHost(
+                    navController = navController,
+                    startDestination = Route.WELCOME
                 ) {
-                    NavHost(
-                        navController = navController,
-                        startDestination = Route.WELCOME
-                    ) {
-                        composable(Route.WELCOME) {
-                            WelcomeScreen(onClickNext = navController::navigate)
-                        }
-                        composable(Route.GENDER) {
+                    composable(Route.WELCOME) {
 
-                        }
-                        composable(Route.AGE) {
+                    }
+                    composable(Route.GENDER) {
 
-                        }
-                        composable(Route.HEIGHT) {
+                    }
+                    composable(Route.AGE) {
 
-                        }
-                        composable(Route.WEIGHT) {
+                    }
+                    composable(Route.HEIGHT) {
 
-                        }
-                        composable(Route.GOAL) {
+                    }
+                    composable(Route.WEIGHT) {
 
-                        }
-                        composable(Route.ACTIVITIES) {
+                    }
+                    composable(Route.GOAL) {
 
-                        }
-                        composable(Route.NUTRIENT_GOAL) {
+                    }
+                    composable(Route.ACTIVITIES) {
 
-                        }
-                        composable(Route.SEARCH) {
+                    }
+                    composable(Route.NUTRIENT_GOAL) {
 
-                        }
-                        composable(Route.TRACKER_OVERVIEW) {
+                    }
+                    composable(Route.SEARCH) {
 
-                        }
+                    }
+                    composable(Route.TRACKER_OVERVIEW) {
+
                     }
                 }
             }
@@ -74,8 +74,31 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun RootLayout(content: @Composable () -> Unit) {
+fun UiShowWelcomeScreen(navController: NavHostController, navBackStackEntry: NavBackStackEntry) {
+    WelcomeScreen {
+        onClickNextInWelcomeScreen(navController, navBackStackEntry, it)
+    }
+}
 
+
+fun onClickNextInWelcomeScreen(
+    navController: NavHostController,
+    navBackStackEntry: NavBackStackEntry,
+    navigate: UiEvent.Navigate
+) {
+    navController.navigate(navigate.route)
+}
+
+@Composable
+fun RootLayout(content: @Composable () -> Unit) {
+    SrComposeTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            color = MaterialTheme.colors.background
+        ) {
+            content()
+        }
+    }
 }
 
 @Composable
@@ -120,9 +143,7 @@ fun DefaultPreview() {
 @Preview(showBackground = true)
 @Composable
 fun previewWelcomeScreen() {
-    WelcomeScreen() {
-
-    }
+    ActionButton(textOnButton ="test", onClick = { /*TODO*/ })
 }
 
 
