@@ -215,7 +215,7 @@ fun TextView() {
     )
 }
 
-
+@Preview(showBackground = true)
 @Composable
 fun previewWelcomeScreen() {
     ActionButton(textOnButton = "test", onClick = { /*TODO*/ })
