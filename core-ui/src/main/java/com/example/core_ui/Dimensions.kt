@@ -1,6 +1,7 @@
 package com.example.core_ui
 
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -13,6 +14,9 @@ data class Dimensions(
     val spaceExtraLarge: Dp = 64.dp
 )
 
+/**
+ * [Reference](https://developer.android.com/jetpack/compose/compositionlocal#intro)
+ */
 val LocalSpacing = compositionLocalOf { Dimensions() }
 
 
